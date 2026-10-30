@@ -1,4 +1,4 @@
-# Expense Tracker - Installment 3
+# Expense Tracker - Installment 4
 # Author: Baruelo Rafael M.
 # A simple program for tracking and managing expenses.
 
@@ -39,10 +39,31 @@ print(f"\nWelcome, {name}! Let's log two expenses.")
 item1 = input("\nFirst expense? ")
 amount1 = float(input("Amount? "))
 
+if amount1 > 200:
+    print("\tHuge expense - are you sure?")
+elif amount1 > 100:
+    print("\tBig expense.")
+elif amount1 > 50:
+    print("\tModerate expense.")
+else:
+    print("\tSmall expense.")
+
 item2 = input("\nSecond expense? ")
 amount2 = float(input("Amount? "))
 
+if amount2 > 200:
+    print("\tHuge expense - are you sure?")
+elif amount2 > 100:
+    print("\tBig expense.")
+elif amount2 > 50:
+    print("\tModerate expense.")
+else:
+    print("\tSmall expense.")
+
 subtotal = amount1 + amount2
+
+if amount1 > 100 and amount2 > 100:
+    print("\tTwo big expenses in a row - slow down!")
 
 average = subtotal / 2
 
@@ -63,7 +84,13 @@ print(f"Subtotal:\t${subtotal:.1f}")
 print(f"Average:\t${average:.2f}")
 print(f"Tax ({tax_percent:.1f}%):\t${tax:.1f}")
 print(f"Grand total:\t${total:.1f}")
-print(f"Over budget?\t{over_budget}")
-print(f"Left in budget:\t${left:.1f}")
+
+if over_budget:
+    print(f"Over budget by ${total - budget:.1f}!")
+elif total > budget * 0.90:
+    print(f"Careful: only ${left:.1f} left.")
+else:
+    print(f"Within budget. ${left:.1f} left.")
+
 print("-" * 40)
-print("Made by: Baruelo Rafael\t|\tInstallment 3")
+print("Made by: Baruelo Rafael\t|\tInstallment 4")
